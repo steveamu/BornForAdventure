@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | BORN FOR ADVENTURE</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="light-page">
+
+    <nav class="navbar">
+        <div class="navbar-container">
+            <button class="mobile-menu-btn">☰</button>
+            <a href="index.html" class="logo">Born For <span class="text-accent">Adventure</span></a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="shop.html" class="nav-link">Shop</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <a href="login.html" class="nav-link">Login</a>
+                <a href="account.html" class="nav-link">Account</a>
+                <button class="cart-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="cart-overlay"></div>
+    <div class="cart-drawer">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart-btn" style="border:none; background:none; cursor:pointer; font-size:1.5rem;">✕</button>
+        </div>
+        <div class="cart-items cart-items-list"></div>
+        <div class="cart-footer">
+            <div style="display:flex; justify-content:space-between; margin-bottom:16px; font-weight:700; text-transform:uppercase;">
+                <span>Subtotal</span>
+                <span class="cart-total-amount">?0.00</span>
+            </div>
+            <button class="btn btn-primary btn-block" style="margin-bottom:12px;">Checkout Now</button>
+            <button class="btn btn-outline btn-block continue-shopping" style="border-color:black; color:black;">Continue Shopping</button>
+        </div>
+    </div>
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h1>Login</h1>
+                <p>Welcome back to BORN FOR ADVENTURE</p>
+            </div>
+
+            <form id="login-form">
+                <div class="error-message" id="error-message"></div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="your@email.com" 
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="••••••••" 
+                        required
+                    >
+                </div>
+
+                <div class="remember-forgot">
+                    <label>
+                        <input type="checkbox" name="remember" id="remember">
+                        Remember me
+                    </label>
+                    <a href="#" data-forgot-password>Forgot password?</a>
+                </div>
+
+                <button type="submit" id="login-btn" class="btn btn-primary">LOGIN</button>
+            </form>
+
+            <div class="auth-divider">
+                <span>OR</span>
+            </div>
+
+            <div class="google-wrap">
+                <div id="google-signin"></div>
+            </div>
+            <div class="google-hint">Use your Google account to sign in quickly.</div>
+
+            <div class="auth-footer">
+                Don't have an account? <a href="register.html">Create one here</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="forgot-overlay" class="modal-overlay"></div>
+    <div id="forgot-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="forgot-title">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+            <h3 id="forgot-title">Reset Password</h3>
+            <button id="close-forgot" class="close-btn">×</button>
+        </div>
+        <p style="color:#6b7280; margin-bottom:20px;">Enter your email and a new password to reset your account.</p>
+        <form id="forgot-form">
+            <div class="error-message" id="reset-message"></div>
+            <div class="form-group">
+                <label for="reset-email">Email Address</label>
+                <input type="email" id="reset-email" name="resetEmail" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+                <label for="reset-password">New Password</label>
+                <input type="password" id="reset-password" name="resetPassword" placeholder="••••••••" required>
+            </div>
+            <div class="form-group">
+                <label for="reset-confirm">Confirm Password</label>
+                <input type="password" id="reset-confirm" name="resetConfirm" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;">Reset Password</button>
+        </form>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="js/auth.js"></script>
+
+</body>
+</html>
+
