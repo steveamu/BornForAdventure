@@ -34,9 +34,6 @@ function initMobileMenu() {
     // Placeholder for mobile menu logic
     const menuBtn = document.querySelector('.mobile-menu-btn');
     // Implement drawer toggle if needed
-    const menuBtn = document.querySelector('.mobile-menu-btn');
-const navLinks = document.querySelector('.nav-links');
-
 menuBtn.addEventListener('click', () => {
   navLinks.classList.toggle('open');
 });
