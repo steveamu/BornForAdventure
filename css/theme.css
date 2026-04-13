@@ -1,29 +1,18 @@
 /* theme.css – brand colors & fonts */
 
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* ── Brand Variables ─ */
 :root {
   /* Colors */
   --color-black: #000000;
   --color-white: #ffffff;
-  --color-accent: #ff4500;
+  --color-accent: #ff4500; /* Adventure Orange */
   --color-gray-light: #f3f4f6;
   --color-gray-medium: #9ca3af;
   --color-gray-dark: #1f2937;
-
+  
   /* Fonts */
   --font-heading: 'Oswald', sans-serif;
   --font-body: 'DM Sans', sans-serif;
-
+  
   /* Spacing */
   --container-width: 1200px;
   --spacing-sm: 8px;
@@ -73,16 +62,4 @@ ul {
 .text-stroke {
   -webkit-text-stroke: 1px white;
   color: transparent;
-}
-
-/* ── Mobile spacing adjustments ─────────────── */
-@media (max-width: 480px) {
-  :root {
-    --spacing-xl: 40px;
-    --spacing-lg: 24px;
-  }
-
-  .container {
-    padding: 0 20px;
-  }
 }
