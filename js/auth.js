@@ -2,7 +2,7 @@
 
 const AUTH_USERS_KEY = 'bfa_users';
 const AUTH_SESSION_KEY = 'bfa_session';
-const GOOGLE_CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com';
+const GOOGLE_CLIENT_ID = '253602831582-gngeobcd3r6tlrvvl8rj6te30bgibsec.apps.googleusercontent.com';
 
 function loadUsers() {
     try {
@@ -113,7 +113,7 @@ function redirectToReturnOrAccount() {
     if (returnTo) {
         window.location.href = returnTo;
     } else {
-        window.location.href = 'account.html';
+        window.location.href = 'shop.html';
     }
 }
 
@@ -175,29 +175,29 @@ function initGoogleAuth() {
     const googleWrap = document.getElementById('google-signin');
     if (!googleWrap) return;
 
-    if (!window.google || !window.google.accounts || !window.google.accounts.id) {
-        showMessage(
-            document.getElementById('error-message') || document.getElementById('auth-message'),
-            'Google Sign-In is not available right now. Please try again later.',
-            'error'
-        );
-        return;
-    }
+    const mountButton = () => {
+        if (!window.google || !window.google.accounts || !window.google.accounts.id) {
+            setTimeout(mountButton, 150);
+            return;
+        }
 
-    window.google.accounts.id.initialize({
-        client_id: GOOGLE_CLIENT_ID,
-        callback: (response) => handleGoogleCredential(response.credential),
-        ux_mode: 'popup',
-        auto_select: false
-    });
+        window.google.accounts.id.initialize({
+            client_id: GOOGLE_CLIENT_ID,
+            callback: (response) => handleGoogleCredential(response.credential),
+            ux_mode: 'popup',
+            auto_select: false
+        });
 
-    window.google.accounts.id.renderButton(googleWrap, {
-        theme: 'outline',
-        size: 'large',
-        shape: 'rect',
-        width: 360,
-        text: 'continue_with'
-    });
+        window.google.accounts.id.renderButton(googleWrap, {
+            theme: 'outline',
+            size: 'large',
+            shape: 'rect',
+            width: 340,
+            text: 'continue_with'
+        });
+    };
+
+    mountButton();
 }
 
 async function handleRegister(form) {
